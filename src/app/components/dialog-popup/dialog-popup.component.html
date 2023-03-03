@@ -1,0 +1,15 @@
+<h1 mat-dialog-title>{{ data.title }}</h1>
+<div mat-dialog-content>
+  <mat-form-field
+    appearance="outline"
+    style="margin-top: 10px"
+    class="example-full-width"
+  >
+    <mat-label>Task</mat-label>
+    <input matInput [(ngModel)]="val" />
+  </mat-form-field>
+</div>
+<div mat-dialog-actions align="end">
+  <button mat-button (click)="onNoClick()">cancel</button>
+  <button mat-button (click)="onSubmit()">save</button>
+</div>

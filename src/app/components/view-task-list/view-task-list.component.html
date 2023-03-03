@@ -1,0 +1,24 @@
+<mat-list-item *ngIf="tasks && tasks.length < 1">No task Found</mat-list-item>
+<ng-container *ngFor="let task of tasks; index as i">
+  <div class="list--item">
+    {{ i + 1 }}) {{ task.value }}
+    <div class="right--action">
+      <mat-icon (click)="openDialog('Edit Task', i)"> edit </mat-icon>
+      <mat-icon (click)="onDelete(i)">delete</mat-icon>
+    </div>
+  </div>
+</ng-container>
+
+<!-- <ng-container *ngFor="let task of tasks | enumerate">
+  <div class="list--item">
+    {{ task.index + 1 }}) {{ task.value }}
+    <div class="right--action">
+      <button mat-icon-button (click)="openDialog('Edit Task', task.index)">
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button mat-icon-button (click)="onDelete(task.index)">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </div>
+  </div>
+</ng-container> -->
