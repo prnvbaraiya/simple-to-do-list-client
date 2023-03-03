@@ -1,9 +1,25 @@
-<mat-toolbar color="primary">
+<!-- Header  -->
+<mat-toolbar class="header" color="secondary">
   <span>To Do List</span>
   <span class="example-spacer"></span>
-  <button mat-button>Sign in</button>
+  <div class="flex-align">
+    <div style="margin-top: 15px">
+      <mat-form-field appearance="outline" class="search--field">
+        <mat-icon matPrefix>search</mat-icon>
+        <input matInput placeholder="Search..." [(ngModel)]="searchTerm" />
+      </mat-form-field>
+    </div>
+    <button mat-button>Sign in</button>
+  </div>
 </mat-toolbar>
-<app-view-task-list [tasks]="data.tasks"></app-view-task-list>
+
+<!-- Content -->
+<app-view-task-list
+  [tasks]="data.tasks"
+  [searchTerm]="searchTerm"
+></app-view-task-list>
+
+<!-- Footer  -->
 <div style="height: 50px">
   <p style="margin: 20px auto; text-align: center">
     Copywrite &copy; 2023 Pranav Baraiya

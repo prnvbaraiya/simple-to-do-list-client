@@ -12,13 +12,14 @@ import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
   styleUrls: ['./view-task-list.component.scss'],
 })
 export class ViewTaskListComponent {
-  @Input() tasks: Task[] = [];
   data: DialogData = {
     tasks: [],
     title: '',
     type: 'update',
     index: -1,
   };
+  @Input() tasks: Task[] = [];
+  @Input() searchTerm: string = '';
 
   constructor(private _snackBar: MatSnackBar, public dialog: MatDialog) {}
 
@@ -39,5 +40,13 @@ export class ViewTaskListComponent {
 
   drop(event: CdkDragDrop<string[]>) {
     moveItemInArray(this.tasks, event.previousIndex, event.currentIndex);
+  }
+
+  filterTasks() {
+    return this.tasks.filter(
+      (task) =>
+        task.value.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
+        task.type.toLowerCase().includes(this.searchTerm.toLowerCase())
+    );
   }
 }

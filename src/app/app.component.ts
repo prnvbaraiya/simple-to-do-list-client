@@ -9,7 +9,7 @@ import { DialogData } from './models/Dialogdata.model';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'to-do-list-client';
+  searchTerm: string = '';
   data: DialogData = {
     tasks: [
       { value: 'New Task', type: 'new' },

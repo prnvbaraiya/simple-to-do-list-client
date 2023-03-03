@@ -1,7 +1,13 @@
-<mat-list-item *ngIf="tasks && tasks.length < 1">No task Found</mat-list-item>
+<mat-list-item class="flex-center" *ngIf="tasks && filterTasks().length === 0">
+  No task Found
+</mat-list-item>
 
 <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
-  <div class="example-box" *ngFor="let task of tasks; index as i" cdkDrag>
+  <div
+    class="example-box"
+    *ngFor="let task of filterTasks(); index as i"
+    cdkDrag
+  >
     <div [class]="'list--item ' + task.type">
       <div class="flex-align">
         <mat-icon style="cursor: move" cdkDragHandle>drag_indicator</mat-icon>
@@ -9,7 +15,7 @@
           {{ task.value }}
         </div>
       </div>
-      <div class="flex-align">
+      <div class="flex-center">
         <mat-chip>{{ task.type | titlecase }}</mat-chip>
         <button mat-icon-button (click)="openDialog('Edit Task', i)">
           <mat-icon>edit</mat-icon>
