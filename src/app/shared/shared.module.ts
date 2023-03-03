@@ -11,6 +11,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatChipsModule } from '@angular/material/chips';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 @NgModule({
   declarations: [],
@@ -27,6 +28,7 @@ import { MatChipsModule } from '@angular/material/chips';
     MatSnackBarModule,
     MatRadioModule,
     MatChipsModule,
+    DragDropModule,
   ],
 })
 export class SharedModule {}

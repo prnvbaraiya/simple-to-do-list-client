@@ -4,6 +4,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { DialogData } from 'src/app/models/Dialogdata.model';
 import { Task } from 'src/app/models/Task.model';
 import { DialogPopupComponent } from '../dialog-popup/dialog-popup.component';
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-view-task-list',
@@ -11,7 +12,7 @@ import { DialogPopupComponent } from '../dialog-popup/dialog-popup.component';
   styleUrls: ['./view-task-list.component.scss'],
 })
 export class ViewTaskListComponent {
-  @Input() tasks: Task[]=[];
+  @Input() tasks: Task[] = [];
   data: DialogData = {
     tasks: [],
     title: '',
@@ -34,5 +35,9 @@ export class ViewTaskListComponent {
   onDelete(index: number) {
     this.tasks.splice(index, 1);
     this.openSnackBar('Deleted Successfully', 'OK');
+  }
+
+  drop(event: CdkDragDrop<string[]>) {
+    moveItemInArray(this.tasks, event.previousIndex, event.currentIndex);
   }
 }

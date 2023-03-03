@@ -10,7 +10,12 @@ import { ViewTaskListComponent } from './components/view-task-list/view-task-lis
 import { EnumeratePipe } from './pipes/enumerate.pipe';
 
 @NgModule({
-  declarations: [AppComponent, DialogPopupComponent, ViewTaskListComponent, EnumeratePipe],
+  declarations: [
+    AppComponent,
+    DialogPopupComponent,
+    ViewTaskListComponent,
+    EnumeratePipe,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,

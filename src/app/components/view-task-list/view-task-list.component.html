@@ -1,14 +1,26 @@
 <mat-list-item *ngIf="tasks && tasks.length < 1">No task Found</mat-list-item>
-<ng-container *ngFor="let task of tasks; index as i">
-  <div [class]="'list--item ' + task.type">
-    {{ i + 1 }}) {{ task.value }}
-    <div class="right--action">
-      <mat-chip>{{ task.type | titlecase }}</mat-chip>
-      <mat-icon (click)="openDialog('Edit Task', i)"> edit </mat-icon>
-      <mat-icon (click)="onDelete(i)">delete</mat-icon>
+
+<div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
+  <div class="example-box" *ngFor="let task of tasks; index as i" cdkDrag>
+    <div [class]="'list--item ' + task.type">
+      <div class="flex-align">
+        <mat-icon style="cursor: move" cdkDragHandle>drag_indicator</mat-icon>
+        <div class="text--container">
+          {{ task.value }}
+        </div>
+      </div>
+      <div class="flex-align">
+        <mat-chip>{{ task.type | titlecase }}</mat-chip>
+        <button mat-icon-button (click)="openDialog('Edit Task', i)">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button (click)="onDelete(i)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
     </div>
   </div>
-</ng-container>
+</div>
 
 <!-- <ng-container *ngFor="let task of tasks | enumerate">
   <div class="list--item">
