@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { DialogData } from 'src/app/models/Dialogdata.model';
+import { Task } from 'src/app/models/Task.model';
 import { DialogPopupComponent } from '../dialog-popup/dialog-popup.component';
 
 @Component({
@@ -10,7 +11,7 @@ import { DialogPopupComponent } from '../dialog-popup/dialog-popup.component';
   styleUrls: ['./view-task-list.component.scss'],
 })
 export class ViewTaskListComponent {
-  @Input() tasks: any;
+  @Input() tasks: Task[]=[];
   data: DialogData = {
     tasks: [],
     title: '',
@@ -30,7 +31,7 @@ export class ViewTaskListComponent {
     this._snackBar.open(message, action);
   }
 
-  onDelete(index: any) {
+  onDelete(index: number) {
     this.tasks.splice(index, 1);
     this.openSnackBar('Deleted Successfully', 'OK');
   }
