@@ -1,9 +1,11 @@
 .list--item {
   display: flex;
   justify-content: space-between;
-  margin: 5px 0;
+  align-items: center;
+  margin: 15px 5px;
   padding: 10px 20px;
-  background-color: red;
+  border: 1px solid black;
+  border-radius: 10px;
 }
 
 .mat-icon {
@@ -14,4 +16,28 @@
 .right--action {
   display: flex;
   gap: 15px;
+}
+
+.new {
+  background-color: white;
+}
+
+.important {
+  background-color: #ff5733;
+}
+
+.urgent {
+  background-color: #ff0000;
+}
+
+.routine {
+  background-color: antiquewhite;
+}
+
+.optional {
+  background-color: #ffc300;
+}
+
+.completed {
+  background-color: #4caf50;
 }

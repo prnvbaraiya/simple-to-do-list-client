@@ -8,6 +8,18 @@
     <mat-label>Task</mat-label>
     <input matInput [(ngModel)]="val" />
   </mat-form-field>
+  <mat-radio-group
+    color="primary"
+    aria-label="Select an option"
+    [(ngModel)]="taskType"
+  >
+    <mat-radio-button value="new">New</mat-radio-button>
+    <mat-radio-button value="important">Important</mat-radio-button>
+    <mat-radio-button value="urgent">Urgent</mat-radio-button>
+    <mat-radio-button value="routine">Routine</mat-radio-button>
+    <mat-radio-button value="optional">Optional</mat-radio-button>
+    <mat-radio-button value="completed">Completed</mat-radio-button>
+  </mat-radio-group>
 </div>
 <div mat-dialog-actions align="end">
   <button mat-button (click)="onNoClick()">cancel</button>

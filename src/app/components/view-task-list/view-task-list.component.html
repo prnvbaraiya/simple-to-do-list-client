@@ -1,8 +1,9 @@
 <mat-list-item *ngIf="tasks && tasks.length < 1">No task Found</mat-list-item>
 <ng-container *ngFor="let task of tasks; index as i">
-  <div class="list--item">
+  <div [class]="'list--item ' + task.type">
     {{ i + 1 }}) {{ task.value }}
     <div class="right--action">
+      <mat-chip>{{ task.type | titlecase }}</mat-chip>
       <mat-icon (click)="openDialog('Edit Task', i)"> edit </mat-icon>
       <mat-icon (click)="onDelete(i)">delete</mat-icon>
     </div>

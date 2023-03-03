@@ -11,7 +11,14 @@ import { DialogData } from './models/Dialogdata.model';
 export class AppComponent {
   title = 'to-do-list-client';
   data: DialogData = {
-    tasks: [{ value: 'Task 1' }, { value: 'Task 2' }],
+    tasks: [
+      { value: 'New Task', type: 'new' },
+      { value: 'Important Task', type: 'important' },
+      { value: 'Urgent Task', type: 'urgent' },
+      { value: 'Routine Task', type: 'routine' },
+      { value: 'Optional Task', type: 'optional' },
+      { value: 'Completed Task', type: 'completed' },
+    ],
     type: 'add',
     title: '',
   };
